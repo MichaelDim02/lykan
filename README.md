@@ -1,2 +1,4 @@
 # lykan
-Leak analysis program
+Leak analysis program in C
+
+Under development
