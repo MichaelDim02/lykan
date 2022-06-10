@@ -18,13 +18,19 @@
 #define RED "\x1b[31m"
 #define RESET "\x1b[0m"
 
+#define COL(X) "\033[100D\033["#X"C"
+#define UP(X) "\033["#X"A"
+#define DOWN(X) "\033["#X"B"
+#define RIGHT(X) "\033["#X"C"
+#define LEFT(X) "\033["#X"D"
+
 volatile sig_atomic_t running;
 
 
 static inline void
 help(char *bin)
 {
-	printf("Lykan - Leak Analyzer %s\n"
+	printf("lykan - Leak Analyzer v0.2 %s\n"
 	       "by Michael Constantine Dimopoulos\n"
 	       "https://mcdim.xyz  <mk@mcdim.xyz>\n\n"
 
@@ -219,17 +225,18 @@ on_length(int *length, int count)
 void
 on_basic_charsets(int *chars, char **chars_name, int chars_total)
 {
-	printf("Basic character sets:\n----------\n");
+	printf(COL(27) UP(35) "Basic character sets:" COL(27) DOWN(1) "---------" LEFT(9) DOWN(1));
 	FILE *f3 = fopen("data/logs/chars.txt", "w");
 	for (int i=0; i<5; i++) {
 		double perc = get_perc(chars[i], chars_total);
 
-		printf("%-10s: %6.3f% "BLUE" (%d)"RESET"\n", chars_name[i], perc, chars[i]);
+		printf("%-10s: %6.3f% "BLUE" (%d)"RESET COL(27) DOWN(1), chars_name[i], perc, chars[i]);
 
 		//if (i <= 30)
 			fprintf(f3, "%d \"%s\" %f\n", i, chars_name[i], perc);
 	}
 	fclose(f3);
+	printf(DOWN(25));
 
 	gnuplot("chars", "Basic character sets", "blue");
 
@@ -258,12 +265,12 @@ on_letters(int *symbols, char *symbols_name, int chars_total)
 void
 on_numbers(int *symbols, char *symbols_name, int chars_total)
 {
-	printf("Numbers:\n---------\n");
+	printf(COL(27) UP(24) "Numbers:" LEFT(8) DOWN(1) "---------" LEFT(9) DOWN(1));
 	FILE *f5 = fopen("data/logs/symb_numbers.txt", "w");
 	for (int i=52; i<62; i++) {
 		double perc = get_perc(symbols[i], chars_total);
 
-		printf("%c: %6.3f% "BLUE" (%d)"RESET"\n", symbols_name[i], perc, symbols[i]);
+		printf("%c: %6.3f% "BLUE" (%d)"RESET DOWN(1) COL(27), symbols_name[i], perc, symbols[i]);
 
 		fprintf(f5, "%d '%c' %f\n", i-52, symbols_name[i], perc);
 	}
@@ -277,12 +284,12 @@ on_numbers(int *symbols, char *symbols_name, int chars_total)
 void
 on_special(int *symbols, char *symbols_name, int chars_total)
 {
-	printf("Special:\n---------\n");
+	printf(COL(54) UP(14) "Special:" LEFT(8) DOWN(1) "---------" LEFT(9) DOWN(1));
 	FILE *f6 = fopen("data/logs/symb_special.txt", "w");
 	for (int i=62; i<89; i++) {
 		double perc = get_perc(symbols[i], chars_total);
 
-		printf("%c: %6.3f% "BLUE" (%d)"RESET"\n", symbols_name[i], perc, symbols[i]);
+		printf("%c: %6.3f% "BLUE" (%d)"RESET DOWN(1) COL(54), symbols_name[i], perc, symbols[i]);
 
 		fprintf(f6, "%d '%c' %f\n", i-62, symbols_name[i], perc);
 	}

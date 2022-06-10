@@ -1,2 +1,2 @@
 install:
-	gcc main.c gnuplot.c progressbar.c -o lykan
+	gcc lykan.c gnuplot.c progressbar.c -o lykan
