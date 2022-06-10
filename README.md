@@ -1,3 +1,5 @@
+<img src="https://mcdim.xyz/projects/n/lykan2.png" alt="Narthex logo" style="height: 150px;"/>
+
 # lykan
 Leak analysis program in C
 
