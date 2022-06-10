@@ -1,4 +1,4 @@
-<img src="https://mcdim.xyz/media/lykan2.png" alt="lykan logo" style="height: 220px;"/>
+<img src="https://mcdim.xyz/media/lykan0.png" alt="lykan logo" style="height: 220px;"/>
 
 # lykan
 Leak analysis program in C
