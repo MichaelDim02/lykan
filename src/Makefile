@@ -1,2 +1,12 @@
+CC=gcc
+
+lykan:
+	$(CC) lykan.c gnuplot.c progressbar.c -o lykan
+
 install:
-	gcc lykan.c gnuplot.c progressbar.c -o lykan
+	$(CC) lykan.c gnuplot.c progressbar.c -o lykan
+	mv lykan /bin
+
+uninstall:
+	rm /bin/lykan
+
