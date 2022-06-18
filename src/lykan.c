@@ -11,8 +11,8 @@
 #include "gnuplot.h"
 #include "progressbar.h"
 
+#define VERSION "v0.2"
 
-#define VERSION "v0.1"
 #define BUFFER_SIZE 512
 #define BLUE "\e[0;34m"
 #define RED "\x1b[31m"
@@ -30,7 +30,7 @@ volatile sig_atomic_t running;
 static inline void
 help(char *bin)
 {
-	printf("lykan - Leak Analyzer v0.2 %s\n"
+	printf("lykan - Leak Analyzer %s\n"
 	       "by Michael Constantine Dimopoulos\n"
 	       "https://mcdim.xyz  <mk@mcdim.xyz>\n\n"
 
@@ -388,22 +388,6 @@ main(int argc, char **argv)
 
 	symbol_bsort(0, 52, symbols, symbols_name);
 	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
 	symbol_bsort(62, 89, symbols, symbols_name);
 
 
@@ -436,22 +420,6 @@ main(int argc, char **argv)
 /*
 	symbol_bsort(0, 52, symbols, symbols_name);
 	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
-	symbol_bsort(62, 89, symbols, symbols_name);
 	symbol_bsort(62, 89, symbols, symbols_name);
 	/*for (int i = 52; i < 62 - 1; i++) {
 		//for (int j = min; j < max - j - 1; j++) {
