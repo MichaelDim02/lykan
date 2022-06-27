@@ -170,7 +170,8 @@ charset_stat(char *buffer, int chars[])
 static void
 symbols_stat(char *buffer, int symbols[], char symbols_name[])
 {
-	for (int i = 0; i < strlen(buffer); i++) {
+	int len = strlen(buffer)
+	for (int i = 0; i < len; i++) {
 		for (int j = 0; j < 89; j++) {
 			if (buffer[i] == symbols_name[j])
 				symbols[j]++;
