@@ -48,8 +48,9 @@ die(char *str, int exit_code)
 	exit(exit_code);
 }
 
-void handler(int signum){
-	printf("Ctrl+c pressed\n");
+void handler(int signum)
+{
+	printf("\nCtrl+c pressed\n");
 	running = 0;
 }
 
@@ -170,7 +171,7 @@ charset_stat(char *buffer, int chars[])
 static void
 symbols_stat(char *buffer, int symbols[], char symbols_name[])
 {
-	int len = strlen(buffer)
+	int len = strlen(buffer);
 	for (int i = 0; i < len; i++) {
 		for (int j = 0; j < 89; j++) {
 			if (buffer[i] == symbols_name[j])
@@ -185,6 +186,7 @@ symbol_bsort(int min, int max, int symbols[], char symbols_name[])
 	for (int i = min; i < max - 1; i++) {
 		//for (int j = min; j < max - j - 1; j++) {
 		for (int j = min; j < i; j++) {
+		//for (int j = min; j < max - i - 1; j++) {
 			if (symbols[j] <= symbols[j+1]) {
 				int swap = symbols[j];
 				symbols[j] = symbols[j+1];
@@ -388,7 +390,7 @@ main(int argc, char **argv)
 	on_basic_charsets(chars, chars_name, chars_total);
 
 	symbol_bsort(0, 52, symbols, symbols_name);
-	symbol_bsort(52, 62, symbols, symbols_name);
+	//symbol_bsort(52, 62, symbols, symbols_name);
 	symbol_bsort(62, 89, symbols, symbols_name);
 
 

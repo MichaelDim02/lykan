@@ -16,7 +16,7 @@ gnuplot(char *name, char *desc, char *color)
 	         "set title \'%s\';"
 	         "unset key;"
 	         "set border 1+2 back;"
-	         "plot '-' using 1:3:xtic(2) with boxes lt rgb \'%s\'\""
-	         "> data/charts/%s.png", name, desc, color, name);
+	         "plot '-' using 1:3:xtic(2) with boxes lt rgb \'%s\'\" "
+	         "2>/dev/null > data/charts/%s.png", name, desc, color, name);
 	system(buffer);
 }
